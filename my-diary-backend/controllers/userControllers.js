@@ -15,8 +15,9 @@ const signup = async (req, res) => {
         email: req.body.email,
         password: hash,
       };
-      await User.create(user);
-      res.send({ msg: "account created successfully" });
+      const newUser = await User.create(user);
+      var token = jwt.sign({ id: newUser._id }, "sofia");
+      res.send({ token });
     });
   });
 };
@@ -33,6 +34,8 @@ const login = async (req, res) => {
         res.send({ msg: "wrong password" });
       }
     });
+  } else {
+    res.send({ msg: "Wrong email" });
   }
 };
 
