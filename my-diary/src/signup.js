@@ -1,11 +1,61 @@
-export default function signup() {
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
+export default function Signup() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  function goToLogin() {
+    navigate("/");
+  }
+
+  function signup() {}
+  axios.post("http://localhost:1212/user/signup").then(({ data }) => {
+    console.log(data);
+  });
   return (
     <div>
-      <input type="email" placeholder="email" />
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
-      <button>Signup</button>
-      <p>Do you have an account? login here</p>
+      <input
+        type="email"
+        placeholder="email"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="username"
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      />
+      <input
+        type="password"
+        placeholder="password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          signup();
+        }}
+      >
+        Signup
+      </button>
+      <p>
+        Do you have an account?{" "}
+        <a
+          onClick={() => {
+            goToLogin();
+          }}
+        >
+          login here
+        </a>
+      </p>
     </div>
   );
 }

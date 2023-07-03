@@ -5,6 +5,7 @@ function newEntry() {
   return (
     <div>
       <div>
+        <button>Sign out</button>
         <Calendar locale="en-GB" />
       </div>
       <textarea placeholder="New Entry"></textarea>

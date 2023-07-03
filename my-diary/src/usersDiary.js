@@ -5,6 +5,7 @@ function usersDiary() {
   return (
     <div>
       <div>
+        <button>Sign out</button>
         <Calendar locale="en-GB" />
       </div>
       <textarea></textarea>
