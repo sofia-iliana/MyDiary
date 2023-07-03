@@ -1,21 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import login from "./login";
-import signup from "./signup";
-import newEntry from "./newEntry";
-import usersDiary from "./usersDiary";
+import Login from "./Login";
+import Signup from "./signup";
+import NewEntry from "./newEntry";
+import UsersDiary from "./usersDiary";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <Routes>
-            <Route path="/" element={<login />} />
-            <Route path="/signup" element={<signup />} />
-            <Route path="/newEntry" element={<newEntry />} />
-            <Route path="/diary" element={<usersDiary />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/newEntry" element={<NewEntry />}></Route>
+          <Route path="/usersDiary" element={<UsersDiary />}></Route>
+        </Routes>
       </Router>
     </div>
   );
