@@ -3,6 +3,7 @@ import Login from "./Login";
 import Signup from "./signup";
 import NewEntry from "./newEntry";
 import UsersDiary from "./usersDiary";
+import "./style.css";
 
 function App() {
   return (

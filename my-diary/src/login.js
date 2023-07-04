@@ -22,6 +22,8 @@ function Login() {
         if (data.token) {
           localStorage.setItem("token", data.token);
           navigate("/newEntry");
+          setEmail("");
+          setPassword("");
         } else {
           alert(data.msg);
         }
@@ -32,10 +34,12 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="loginForm">
+      <h1>My Diary</h1>
       <input
         type="email"
         placeholder="email"
+        value={email}
         onChange={(e) => {
           setEmail(e.target.value);
         }}
@@ -43,11 +47,13 @@ function Login() {
       <input
         type="password"
         placeholder="password"
+        value={password}
         onChange={(e) => {
           setPassword(e.target.value);
         }}
       />
       <button
+        className="btn"
         onClick={() => {
           login();
         }}

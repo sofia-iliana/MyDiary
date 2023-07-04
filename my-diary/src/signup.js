@@ -34,7 +34,8 @@ export default function Signup() {
   }
 
   return (
-    <div>
+    <div className="signupForm">
+      <h1>My Diary</h1>
       <input
         type="email"
         placeholder="email"
@@ -57,6 +58,7 @@ export default function Signup() {
         }}
       />
       <button
+        className="btn"
         onClick={() => {
           signup();
         }}
