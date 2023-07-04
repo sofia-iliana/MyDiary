@@ -12,10 +12,27 @@ export default function Signup() {
     navigate("/");
   }
 
-  function signup() {}
-  axios.post("http://localhost:1212/user/signup").then(({ data }) => {
-    console.log(data);
-  });
+  function signup() {
+    axios
+      .post("http://localhost:1212/user/signup", {
+        email: email,
+        username: username,
+        password: password,
+      })
+      .then(({ data }) => {
+        console.log(data);
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+          navigate("/newEntry");
+        } else {
+          alert(data.msg);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <div>
       <input
